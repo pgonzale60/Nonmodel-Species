@@ -53,3 +53,4 @@ qsub bwa$iter.sh
 
 echo -e "#$ -N pilon$iter\n#$ -q bio,free*,pub*\n#$ -pe one-node-mpi 64\n#$ -V\n\ncd /bio/pmgonza1/mnark/output/quickmerge/canuNplatnus/\npilon --genome $genome --frags pilon$iter.bam --output pilon$iter --threads 64 --changes" > pilon$iter.sh
 qsub -hold_jid 5362017 pilon$iter.sh
+
