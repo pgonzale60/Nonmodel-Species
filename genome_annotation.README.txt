@@ -1,0 +1,10 @@
+The genome_annotation.sh script contains the commands used to perform the annotation of a new genome assembly.
+The underlying structure is organized as follows:
+1. Repeat identification with RepeatModeler.
+2. Combination of resulting models with existing information in Dfam and REpBase.
+3. Masking the genome assembly with Repeatmasker.
+4. Using the tool exonerate, protein-coding gene models from a previous annotation were transfer to the new assembly by performing alignments of their predicted protein sequences. The script contains the commands used to extract the proteins from the downloadable annotation file and query these against the assembly.
+5. To extend and improve previous gene models, transcriptomic data are used.  This involves generating a de novo transcriptome assembly. The script contains the commands used to map RNA-sequencing reads with HISAT2 and to assemble them into transcripts with the tool Stringtie.
+6. The tool PASA is subsequently used to extend the gene models' UTRs whenever possible.
+7. Downloaded miRNA and pre-miRNA sequences from RNAcentral and other databases are mapped using MapMi and GMAP.
+8. In a last step, the script contains the respective commands to predict lncRNAs with FEELnc, miscellaneous ncRNAs with Rfam, tRNAs with tRNAscan, and rRNAs with RNAmmer.
