@@ -1,0 +1,8 @@
+The genome_assembly.sh script contains the commands to generate a new genome assembly using PacBio long sequencing reads for scaffolding and Illumina short reads for polishing. This pipeline is largely based on that devised by Chakraborty and colleagues in their publication Contiguous and accurate de novo assembly of metazoan genomes with modest long read coverage (doi: 10.1093/nar/gkw654).
+The underlying structure is organized as follows:
+
+1. The assembler Canu is first used to obtain a draft genome.
+2. With Platanus another assembly is generated utilizing the Illumina short reads.
+3. Optional. The tool blobtools can be used to detect contaminant DNA sources in the above assemblies.
+4. The directive for combining and extending the assembled contigs previously generated with Quickmerge. The latest version of this crucial tool can be found at https://github.com/mahulchak/quickmerge.
+5. Polishing steps of the resulting assembly using Illumina short reads with the tools Quiver and Pilon.
